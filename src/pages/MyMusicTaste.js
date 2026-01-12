@@ -15,6 +15,8 @@ const MyMusicTaste = () => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [selectedSong, setSelectedSong] = useState(null);
+  const [playingSong, setPlayingSong] = useState(null);
+  const [audioRef, setAudioRef] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,7 +49,8 @@ const MyMusicTaste = () => {
             song: data.song || 'Song Title',
             artist: data.artist || 'Artist Name',
             album: data.album || 'Album Name',
-            albumCover: data.albumCover || ''
+            albumCover: data.albumCover || '',
+            audioUrl: data.audioUrl || ''
           };
         });
 
@@ -113,6 +116,32 @@ const MyMusicTaste = () => {
 
     fetchComments();
   }, [selectedSong]);
+
+  const handlePlayPause = (track, event) => {
+    event.stopPropagation();
+
+    if (!track.audioUrl) return;
+
+    if (playingSong?.id === track.id) {
+      // Pause current song
+      if (audioRef) {
+        audioRef.pause();
+      }
+      setPlayingSong(null);
+    } else {
+      // Stop previous song if playing
+      if (audioRef) {
+        audioRef.pause();
+      }
+
+      // Play new song
+      const audio = new Audio(track.audioUrl);
+      audio.play();
+      audio.onended = () => setPlayingSong(null);
+      setAudioRef(audio);
+      setPlayingSong(track);
+    }
+  };
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
@@ -271,6 +300,15 @@ const MyMusicTaste = () => {
                       <div className="ranking-artist">{track.artist}</div>
                       <div className="ranking-album">{track.album}</div>
                     </div>
+                    {track.audioUrl && (
+                      <button
+                        className="play-button"
+                        onClick={(e) => handlePlayPause(track, e)}
+                        aria-label={playingSong?.id === track.id ? 'Pause' : 'Play'}
+                      >
+                        {playingSong?.id === track.id ? '⏸' : '▶'}
+                      </button>
+                    )}
                     <div className="comment-indicator">
                       💬 Click to comment
                     </div>

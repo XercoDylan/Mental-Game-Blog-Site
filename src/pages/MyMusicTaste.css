@@ -190,6 +190,34 @@
   color: #fff;
 }
 
+.play-button {
+  background: #000;
+  color: #fff;
+  border: 3px solid #000;
+  padding: 10px 18px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.play-button:hover {
+  background: #fff;
+  color: #000;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.ranking-item.selected .play-button {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
 .comment-indicator {
   font-family: 'Arial Black', 'Helvetica', sans-serif;
   font-size: 0.8rem;

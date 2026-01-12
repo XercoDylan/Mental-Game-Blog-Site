@@ -4,13 +4,13 @@ import { getAuth, signInWithPopup, signOut, OAuthProvider, onAuthStateChanged } 
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyATQSzKkrWXjhZNIfQkJEYFCMsd27sG8GQ",
-  authDomain: "mental-game-c4040.firebaseapp.com",
-  projectId: "mental-game-c4040",
-  storageBucket: "mental-game-c4040.firebasestorage.app",
-  messagingSenderId: "766921863094",
-  appId: "1:766921863094:web:f087d6efa286fd6b425b17",
-  measurementId: "G-GQDY41MF1K"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase

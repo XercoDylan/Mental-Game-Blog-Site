@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(npm install)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(dir:*)",
+      "Bash(copy \"src\\\\images\\\\mentalgame.png\" \"public\\\\favicon.png\")"
     ]
   }
 }
