@@ -1,0 +1,679 @@
+/* Fan Ranking Page - Newspaper Style */
+
+.fan-ranking-page {
+  background: #f5f5f5;
+}
+
+.fan-ranking-page .page-content {
+  margin: 100px auto 0;
+  padding: 0 20px 40px;
+  max-width: 1400px;
+}
+
+/* Header */
+.ranking-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px;
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
+  background: #fff;
+}
+
+.ranking-header-top {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.ranking-title {
+  font-size: 3rem;
+  margin-bottom: 8px;
+  letter-spacing: 4px;
+  line-height: 1;
+}
+
+.ranking-header-subtitle {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 1px;
+}
+
+/* Create Ranking Prompt */
+.create-ranking-prompt {
+  background: #fff;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0px #000;
+  padding: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.prompt-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.prompt-title {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.prompt-text {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.create-ranking-button,
+.go-home-button {
+  background: #000;
+  color: #fff;
+  border: 3px solid #000;
+  padding: 15px 30px;
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.create-ranking-button:hover,
+.go-home-button:hover {
+  background: #fff;
+  color: #000;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Create Ranking Section */
+.create-ranking-section {
+  background: #fff;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0px #000;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.section-header {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 4px solid #000;
+}
+
+.section-title {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #666;
+}
+
+/* Nominees Grid */
+.nominees-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.nominee-card {
+  background: #fff;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nominee-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+.nominee-card.selected {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.nominee-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 3px solid #000;
+}
+
+.nominee-name {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 15px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.selected-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  color: #000;
+  border: 3px solid #000;
+  padding: 8px 12px;
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 900;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.4);
+}
+
+/* Selected Rankings */
+.selected-rankings {
+  background: #f9f9f9;
+  border: 3px solid #000;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.selected-title {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.selected-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.selected-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fff;
+  border: 3px solid #000;
+  padding: 15px;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.selected-rank {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  width: 50px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.selected-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 3px solid #000;
+  flex-shrink: 0;
+}
+
+.selected-name {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+.selected-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.move-button {
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
+  padding: 5px 15px;
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.move-button:hover:not(:disabled) {
+  background: #fff;
+  color: #000;
+}
+
+.move-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Submit Section */
+.submit-section {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.submit-ranking-button {
+  background: #000;
+  color: #fff;
+  border: 3px solid #000;
+  padding: 15px 30px;
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+  flex: 1;
+  max-width: 300px;
+}
+
+.submit-ranking-button:hover:not(:disabled) {
+  background: #fff;
+  color: #000;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+.submit-ranking-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cancel-button {
+  background: #fff;
+  color: #000;
+  border: 3px solid #000;
+  padding: 15px 30px;
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+  flex: 1;
+  max-width: 200px;
+}
+
+.cancel-button:hover {
+  background: #000;
+  color: #fff;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Rankings Feed */
+.rankings-feed {
+  background: #fff;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0px #000;
+  padding: 30px;
+}
+
+.rankings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.no-rankings {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  padding: 40px;
+  font-style: italic;
+}
+
+/* Ranking Card */
+.ranking-card {
+  background: #f9f9f9;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.ranking-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 3px solid #000;
+  background: #fff;
+}
+
+.ranking-user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ranking-user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #000;
+  flex-shrink: 0;
+}
+
+.ranking-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ranking-user-name {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.ranking-timestamp {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.ranking-month-badge {
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 3px solid #000;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* Ranking Card Content */
+.ranking-card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ranking-entry {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fff;
+  border: 3px solid #000;
+  padding: 15px;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.ranking-entry-number {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  width: 45px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.ranking-entry-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border: 3px solid #000;
+  flex-shrink: 0;
+}
+
+.ranking-entry-name {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .nominees-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .ranking-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .fan-ranking-page .page-content {
+    margin: 80px auto 0;
+    padding: 0 15px 30px;
+  }
+
+  .ranking-header {
+    padding: 15px;
+  }
+
+  .ranking-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .ranking-header-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .create-ranking-prompt,
+  .create-ranking-section,
+  .rankings-feed {
+    padding: 20px;
+    border: 3px solid #000;
+    box-shadow: 6px 6px 0px #000;
+  }
+
+  .prompt-title {
+    font-size: 1.5rem;
+  }
+
+  .prompt-text {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .nominees-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 15px;
+  }
+
+  .nominee-image {
+    height: 130px;
+  }
+
+  .nominee-name {
+    font-size: 0.8rem;
+    padding: 12px;
+  }
+
+  .selected-item {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .selected-rank {
+    font-size: 1.3rem;
+    width: 40px;
+  }
+
+  .selected-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .selected-name {
+    font-size: 0.95rem;
+  }
+
+  .submit-section {
+    flex-direction: column;
+  }
+
+  .submit-ranking-button,
+  .cancel-button {
+    max-width: 100%;
+  }
+
+  .ranking-card-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .ranking-entry {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .ranking-entry-number {
+    font-size: 1.3rem;
+    width: 40px;
+  }
+
+  .ranking-entry-image {
+    width: 45px;
+    height: 45px;
+  }
+
+  .ranking-entry-name {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ranking-title {
+    font-size: 1.6rem;
+  }
+
+  .create-ranking-prompt,
+  .create-ranking-section,
+  .rankings-feed {
+    padding: 15px;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.7rem;
+  }
+
+  .nominees-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+  }
+
+  .nominee-image {
+    height: 110px;
+  }
+
+  .nominee-name {
+    font-size: 0.75rem;
+    padding: 10px;
+  }
+
+  .selected-title {
+    font-size: 1.1rem;
+  }
+
+  .selected-item {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .selected-rank {
+    font-size: 1.2rem;
+    width: 35px;
+  }
+
+  .selected-image {
+    width: 45px;
+    height: 45px;
+  }
+
+  .selected-name {
+    font-size: 0.85rem;
+  }
+
+  .ranking-user-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ranking-user-name {
+    font-size: 0.9rem;
+  }
+
+  .ranking-entry {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .ranking-entry-number {
+    font-size: 1.2rem;
+    width: 35px;
+  }
+
+  .ranking-entry-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ranking-entry-name {
+    font-size: 0.8rem;
+  }
+}

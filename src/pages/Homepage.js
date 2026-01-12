@@ -1,18 +1,73 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { collection, getDocs, limit, query } from 'firebase/firestore';
+import { db, auth, onAuthStateChanged, signInWithDiscord, signOutUser } from '../firebase';
 import './Homepage.css';
-import mercyAlbum from '../images/mercy.png';
 
 const Homepage = () => {
   const navigate = useNavigate();
+  const [featuredArtist, setFeaturedArtist] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
 
-  // Featured artist data
-  const featuredArtist = {
-    name: 'DESTIN LAUREL',
-    album: 'MERCY',
-    albumCover: mercyAlbum,
-    backgroundImage: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1600&h=900&fit=crop'
+  useEffect(() => {
+    const fetchFeaturedArtist = async () => {
+      try {
+        const featuredCollection = collection(db, 'featured');
+        const featuredQuery = query(featuredCollection, limit(1));
+        const featuredSnapshot = await getDocs(featuredQuery);
+
+        if (!featuredSnapshot.empty) {
+          const data = featuredSnapshot.docs[0].data();
+          setFeaturedArtist({
+            id: featuredSnapshot.docs[0].id,
+            name: data.name || 'Artist Name',
+            album: data.album || 'Album Title',
+            albumCover: data.albumCover || '',
+            backgroundImage: data.backgroundImage || ''
+          });
+        }
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching featured artist:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchFeaturedArtist();
+
+    // Listen for auth state changes
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        console.log('Full user object:', currentUser);
+        console.log('displayName:', currentUser.displayName);
+        console.log('email:', currentUser.email);
+        console.log('photoURL:', currentUser.photoURL);
+        console.log('providerData[0].photoURL:', currentUser.providerData?.[0]?.photoURL);
+        console.log('providerData:', currentUser.providerData);
+        console.log('reloadUserInfo:', currentUser.reloadUserInfo);
+      }
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogin = async () => {
+    try {
+      await signInWithDiscord();
+    } catch (error) {
+      console.error('Error signing in with Discord:', error);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOutUser();
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
   };
 
   const navigationButtons = [
@@ -26,6 +81,24 @@ const Homepage = () => {
   const handleNavigation = (path) => {
     navigate(path);
   };
+
+  if (loading || !featuredArtist) {
+    return (
+      <div className="homepage" style={{ background: '#000' }}>
+        <div style={{
+          color: '#fff',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh',
+          fontSize: '1.5rem',
+          fontFamily: 'Arial Black, sans-serif'
+        }}>
+          Loading...
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.div
@@ -145,6 +218,18 @@ const Homepage = () => {
             <div className="album-label">NOW REVIEWING</div>
             <div className="album-title">{featuredArtist.album}</div>
           </motion.div>
+
+          <motion.button
+            className="featured-button"
+            onClick={() => navigate('/featured')}
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            READ MORE →
+          </motion.button>
         </div>
       </motion.div>
 
@@ -173,6 +258,55 @@ const Homepage = () => {
           MENTAL GAME
         </motion.h1>
         <p className="tagline">MUSIC • CULTURE • INTERVIEWS</p>
+      </motion.div>
+
+      {/* Auth Button */}
+      <motion.div
+        className="auth-container"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      >
+        {user ? (
+          <div className="user-info">
+            <div className="user-display">
+              {(user.photoURL || user.providerData?.[0]?.photoURL) && (
+                <img
+                  src={user.photoURL || user.providerData?.[0]?.photoURL}
+                  alt="User"
+                  className="user-avatar"
+                  onError={(e) => {
+                    console.log('Image failed to load:', e.target.src);
+                    e.target.style.display = 'none';
+                  }}
+                />
+              )}
+              <span className="user-name">
+                {user.providerData?.[0]?.displayName || user.displayName || user.email?.split('@')[0] || 'User'}
+              </span>
+            </div>
+            <motion.button
+              className="auth-button logout"
+              onClick={handleLogout}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              LOGOUT
+            </motion.button>
+          </div>
+        ) : (
+          <motion.button
+            className="auth-button login"
+            onClick={handleLogin}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" className="discord-icon">
+              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+            </svg>
+            LOGIN WITH DISCORD
+          </motion.button>
+        )}
       </motion.div>
 
       {/* Vertical Navigation Buttons */}

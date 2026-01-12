@@ -1,67 +1,73 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase';
 import './Page.css';
 import './MusicReview.css';
 
 const MusicReview = () => {
   const navigate = useNavigate();
+  const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Sample album reviews - replace with real data later
-  const reviews = [
-    {
-      id: 1,
-      artist: 'KENDRICK LAMAR',
-      album: 'Mr. Morale & The Big Steppers',
-      year: '2022',
-      rating: 9.2,
-      genre: 'CONSCIOUS RAP',
-      reviewer: 'MENTAL GAME',
-      date: 'MAY 15, 2022',
-      albumCover: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop',
-      summary: 'Kendrick delivers his most introspective and experimental album to date, diving deep into therapy, trauma, and transformation.',
-      verdict: 'A masterclass in vulnerability and artistic evolution. Essential listening.'
-    },
-    {
-      id: 2,
-      artist: 'TYLER, THE CREATOR',
-      album: 'Call Me If You Get Lost',
-      year: '2021',
-      rating: 8.8,
-      genre: 'HIP-HOP',
-      reviewer: 'MENTAL GAME',
-      date: 'JUNE 25, 2021',
-      albumCover: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=400&fit=crop',
-      summary: 'Tyler returns to his rap roots with luxurious production and confident bars. A victory lap from an artist fully comfortable in his own skin.',
-      verdict: 'Tyler proves he can still rap while maintaining his signature sonic palette.'
-    },
-    {
-      id: 3,
-      artist: 'J. COLE',
-      album: 'The Off-Season',
-      year: '2021',
-      rating: 7.9,
-      genre: 'RAP',
-      reviewer: 'MENTAL GAME',
-      date: 'MAY 14, 2021',
-      albumCover: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&h=400&fit=crop',
-      summary: 'Cole comes through with polished bars and production, showcasing technical prowess. Solid project that plays it safe.',
-      verdict: 'Technically impressive but doesn\'t quite reach his previous heights.'
-    },
-    {
-      id: 4,
-      artist: 'TRAVIS SCOTT',
-      album: 'UTOPIA',
-      year: '2023',
-      rating: 8.5,
-      genre: 'TRAP',
-      reviewer: 'MENTAL GAME',
-      date: 'JULY 28, 2023',
-      albumCover: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=400&fit=crop',
-      summary: 'Travis delivers psychedelic production and maximalist soundscapes. A sonic journey that pushes boundaries.',
-      verdict: 'Travis continues to innovate and create immersive musical experiences.'
-    }
-  ];
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const reviewsCollection = collection(db, 'reviews');
+        const reviewSnapshot = await getDocs(reviewsCollection);
+
+        const reviewList = reviewSnapshot.docs.map(doc => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            artist: data.artist || 'Artist Name',
+            album: data.album || 'Album Title',
+            year: data.year || '2024',
+            rating: data.rating || 0,
+            genre: data.genre || 'Genre',
+            reviewer: data.reviewer || 'MENTAL GAME',
+            date: data.date || 'Date',
+            albumCover: data.albumCover || '',
+            summary: data.summary || 'Review summary',
+            verdict: data.verdict || 'Review verdict'
+          };
+        });
+
+        setReviews(reviewList);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching reviews:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchReviews();
+  }, []);
+
+  if (loading) {
+    return (
+      <motion.div
+        className="page-container music-review-page"
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -100 }}
+        transition={{ duration: 0.4 }}
+      >
+        <button className="back-button" onClick={() => navigate('/')}>
+          ← BACK TO HOME
+        </button>
+
+        <div className="page-content">
+          <div className="review-header">
+            <div className="review-header-top">MUSIC CRITIQUE</div>
+            <h1 className="page-title review-title">ALBUM REVIEWS</h1>
+            <div className="review-header-subtitle">Loading reviews...</div>
+          </div>
+        </div>
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
@@ -85,50 +91,56 @@ const MusicReview = () => {
 
         {/* Reviews Grid */}
         <div className="reviews-grid">
-          {reviews.map((review, index) => (
-            <motion.article
-              key={review.id}
-              className="review-card"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              {/* Album Cover */}
-              <div className="review-album-cover">
-                <img src={review.albumCover} alt={review.album} className="album-image" />
-                <div className="rating-badge">
-                  <div className="rating-number">{review.rating}</div>
-                  <div className="rating-scale">/10</div>
-                </div>
-              </div>
-
-              {/* Review Content */}
-              <div className="review-content">
-                <div className="review-header">
-                  <div className="review-meta">
-                    <span className="review-genre">{review.genre}</span>
-                    <span className="review-date">{review.date}</span>
-                  </div>
-                  <h3 className="review-artist">{review.artist}</h3>
-                  <div className="review-album-title">"{review.album}"</div>
-                  <div className="review-year">({review.year})</div>
-                </div>
-
-                <div className="review-body">
-                  <p className="review-summary">{review.summary}</p>
-                  <div className="review-verdict">
-                    <span className="verdict-label">VERDICT:</span>
-                    <span className="verdict-text">{review.verdict}</span>
+          {reviews.length === 0 ? (
+            <p style={{ textAlign: 'center', padding: '40px', fontSize: '1.2rem', gridColumn: '1 / -1' }}>
+              No reviews found. Add some to your Firestore database!
+            </p>
+          ) : (
+            reviews.map((review, index) => (
+              <motion.article
+                key={review.id}
+                className="review-card"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                {/* Album Cover */}
+                <div className="review-album-cover">
+                  <img src={review.albumCover} alt={review.album} className="album-image" />
+                  <div className="rating-badge">
+                    <div className="rating-number">{review.rating}</div>
+                    <div className="rating-scale">/10</div>
                   </div>
                 </div>
 
-                <div className="review-footer">
-                  <span className="reviewer-label">REVIEWED BY</span>
-                  <span className="reviewer-name">{review.reviewer}</span>
+                {/* Review Content */}
+                <div className="review-content">
+                  <div className="review-header">
+                    <div className="review-meta">
+                      <span className="review-genre">{review.genre}</span>
+                      <span className="review-date">{review.date}</span>
+                    </div>
+                    <h3 className="review-artist">{review.artist}</h3>
+                    <div className="review-album-title">"{review.album}"</div>
+                    <div className="review-year">({review.year})</div>
+                  </div>
+
+                  <div className="review-body">
+                    <p className="review-summary">{review.summary}</p>
+                    <div className="review-verdict">
+                      <span className="verdict-label">VERDICT:</span>
+                      <span className="verdict-text">{review.verdict}</span>
+                    </div>
+                  </div>
+
+                  <div className="review-footer">
+                    <span className="reviewer-label">REVIEWED BY</span>
+                    <span className="reviewer-name">{review.reviewer}</span>
+                  </div>
                 </div>
-              </div>
-            </motion.article>
-          ))}
+              </motion.article>
+            ))
+          )}
         </div>
 
         {/* Coming Soon Section */}

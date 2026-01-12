@@ -1,0 +1,499 @@
+/* Featured Page Styles */
+.featured-page {
+  background: #000;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.featured-hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.featured-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.featured-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 20px;
+  max-width: 900px;
+}
+
+.featured-badge-large {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  color: #000;
+  padding: 10px 24px;
+  border: 4px solid #000;
+  margin-bottom: 30px;
+  box-shadow: 6px 6px 0px #000;
+}
+
+.badge-icon-large {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.badge-text-large {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.featured-hero-title {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 5rem;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0 0 30px 0;
+  line-height: 1;
+  letter-spacing: 3px;
+  text-shadow: 6px 6px 0px #000;
+  -webkit-text-stroke: 2px #000;
+}
+
+.featured-hero-subtitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.album-label-hero {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.album-title-hero {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 4px 4px 0px #000;
+}
+
+.year-hero {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Content Grid */
+.featured-content-grid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px 60px 40px;
+}
+
+/* Album Card */
+.featured-album-card {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  background: #fff;
+  border: 4px solid #000;
+  padding: 0;
+  box-shadow: 8px 8px 0px #000;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.featured-album-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 4px solid #000;
+}
+
+.album-card-info {
+  padding: 20px;
+  border-bottom: 4px solid #000;
+}
+
+.album-card-title {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #000;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.album-card-artist {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 8px 0;
+}
+
+.album-card-genre {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Streaming Links */
+.streaming-links {
+  padding: 20px;
+}
+
+.streaming-label {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #000;
+  text-transform: uppercase;
+  margin: 0 0 15px 0;
+}
+
+.streaming-button {
+  display: block;
+  background: #000;
+  color: #fff;
+  border: 3px solid #000;
+  padding: 12px 20px;
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+}
+
+.streaming-button:last-child {
+  margin-bottom: 0;
+}
+
+.streaming-button:hover {
+  background: #fff;
+  color: #000;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+.streaming-button:active {
+  transform: translate(1px, 1px);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* Bio Card */
+.featured-bio-card {
+  grid-column: 2;
+  grid-row: 1;
+  background: #fff;
+  border: 4px solid #000;
+  padding: 30px;
+  box-shadow: 8px 8px 0px #000;
+}
+
+.section-title {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #000;
+  text-transform: uppercase;
+  margin: 0 0 15px 0;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.bio-divider {
+  width: 60px;
+  height: 4px;
+  background: #000;
+  margin-bottom: 25px;
+}
+
+.bio-text {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #000;
+  margin: 0 0 30px 0;
+  text-align: justify;
+}
+
+.featured-quote {
+  position: relative;
+  background: #000;
+  color: #fff;
+  padding: 25px 30px;
+  border: 4px solid #000;
+  margin-top: 30px;
+}
+
+.quote-mark {
+  font-family: 'Georgia', serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: #fff;
+  opacity: 0.3;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+
+.quote-text {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0 0 15px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-author {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: right;
+}
+
+/* Stats Card */
+.featured-stats-card {
+  grid-column: 2;
+  grid-row: 2;
+  background: #fff;
+  border: 4px solid #000;
+  padding: 30px;
+  box-shadow: 8px 8px 0px #000;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 25px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  color: #fff;
+  border: 3px solid #000;
+}
+
+.stat-value {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* Highlights Card */
+.featured-highlights-card {
+  grid-column: 1 / -1;
+  background: #fff;
+  border: 4px solid #000;
+  padding: 30px;
+  box-shadow: 8px 8px 0px #000;
+}
+
+.highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.highlight-item {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000;
+  padding: 15px 20px;
+  background: #f5f5f5;
+  border-left: 4px solid #000;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.highlight-bullet {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #000;
+  flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .featured-hero {
+    height: 50vh;
+    min-height: 400px;
+  }
+
+  .featured-hero-title {
+    font-size: 3.5rem;
+  }
+
+  .album-title-hero {
+    font-size: 1.5rem;
+  }
+
+  .featured-content-grid {
+    grid-template-columns: 1fr;
+    padding: 0 30px 40px 30px;
+    gap: 30px;
+  }
+
+  .featured-album-card {
+    grid-column: 1;
+    grid-row: auto;
+    position: relative;
+    top: 0;
+  }
+
+  .featured-bio-card,
+  .featured-stats-card {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-hero {
+    height: 45vh;
+    min-height: 350px;
+    margin-bottom: 40px;
+  }
+
+  .featured-hero-title {
+    font-size: 2.5rem;
+    -webkit-text-stroke: 1px #000;
+  }
+
+  .album-title-hero {
+    font-size: 1.2rem;
+  }
+
+  .featured-content-grid {
+    padding: 0 20px 30px 20px;
+    gap: 20px;
+  }
+
+  .featured-album-card,
+  .featured-bio-card,
+  .featured-stats-card,
+  .featured-highlights-card {
+    padding: 20px;
+    box-shadow: 6px 6px 0px #000;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .bio-text {
+    font-size: 1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+  }
+
+  .highlights-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-hero {
+    height: 40vh;
+    min-height: 300px;
+  }
+
+  .featured-hero-title {
+    font-size: 2rem;
+  }
+
+  .badge-text-large {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+
+  .album-title-hero {
+    font-size: 1rem;
+  }
+
+  .featured-content-grid {
+    padding: 0 15px 25px 15px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-text {
+    font-size: 1rem;
+  }
+}
