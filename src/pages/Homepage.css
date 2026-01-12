@@ -58,8 +58,8 @@
 .featured-card {
   position: absolute;
   top: 50%;
-  right: 80px;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10;
   display: flex;
   align-items: center;
@@ -402,18 +402,18 @@
     top: auto !important;
     transform: none !important;
     max-width: 100%;
-    padding: 20px;
+    padding: 25px 20px;
     text-align: center;
     z-index: 10;
     order: 1;
   }
 
   .logo-text {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .tagline {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     letter-spacing: 2px;
   }
 
@@ -426,18 +426,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    padding: 20px 20px 10px 20px;
+    gap: 12px;
+    padding: 20px 20px 15px 20px;
     z-index: 10;
     order: 2;
   }
 
   .nav-button {
-    font-size: 0.85rem;
-    padding: 10px 16px;
-    width: 200px;
-    min-width: 200px;
-    max-width: 200px;
+    font-size: 1rem;
+    padding: 14px 20px;
+    width: 240px;
+    min-width: 240px;
+    max-width: 240px;
     border: 3px solid #000;
     box-shadow: 4px 4px 0px #000;
   }
@@ -447,7 +447,7 @@
   }
 
   .nav-button-arrow {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   .social-container {
@@ -457,20 +457,20 @@
     transform: none !important;
     display: flex;
     justify-content: center;
-    gap: 15px;
-    padding: 10px 20px 20px 20px;
+    gap: 18px;
+    padding: 15px 20px 20px 20px;
     z-index: 10;
     order: 3;
   }
 
   .social-link {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
 
   .social-link svg {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
   }
 
   .featured-card {
@@ -480,156 +480,164 @@
     right: auto !important;
     transform: none !important;
     margin: auto 20px 20px 20px;
-    padding: 20px;
+    padding: 12px;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
     max-width: calc(100% - 40px);
     width: calc(100% - 40px);
     z-index: 10;
     order: 4;
+    border: 3px solid #000;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
   }
 
   .album-cover {
-    width: 150px;
-    height: 150px;
+    width: 80px;
+    height: 80px;
   }
 
   .featured-info {
     width: 100%;
-    gap: 12px;
+    gap: 8px;
     text-align: center;
   }
 
   .featured-badge {
     justify-content: center;
     width: 100%;
+    padding: 4px 8px;
   }
 
   .badge-text {
-    font-size: 0.6rem;
+    font-size: 0.45rem;
+    letter-spacing: 1px;
   }
 
   .badge-icon {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
 
   .artist-name {
-    font-size: 1.6rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
   }
 
   .album-info {
     border-left: none;
-    border-top: 4px solid #000;
+    border-top: 3px solid #000;
     padding-left: 0;
-    padding-top: 12px;
+    padding-top: 8px;
   }
 
   .album-label {
-    font-size: 0.6rem;
+    font-size: 0.45rem;
+    letter-spacing: 1px;
   }
 
   .album-title {
-    font-size: 1.2rem;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
   }
 }
 
 @media (max-width: 480px) {
   .logo-container {
-    padding: 15px !important;
+    padding: 20px 15px !important;
   }
 
   .logo-text {
-    font-size: 1.5rem;
+    font-size: 2rem;
     -webkit-text-stroke: 1px #000;
   }
 
   .tagline {
-    font-size: 0.55rem;
+    font-size: 0.65rem;
     letter-spacing: 1px;
   }
 
   .nav-container {
     padding: 15px 15px 10px 15px !important;
-    gap: 8px !important;
+    gap: 10px !important;
   }
 
   .nav-button {
-    font-size: 0.75rem !important;
-    padding: 8px 14px !important;
-    width: 170px !important;
-    min-width: 170px !important;
-    max-width: 170px !important;
+    font-size: 0.9rem !important;
+    padding: 12px 18px !important;
+    width: 210px !important;
+    min-width: 210px !important;
+    max-width: 210px !important;
   }
 
   .nav-button-arrow {
-    font-size: 1rem !important;
+    font-size: 1.2rem !important;
   }
 
   .social-container {
     padding: 10px 15px 15px 15px !important;
-    gap: 12px !important;
+    gap: 15px !important;
   }
 
   .social-link {
-    width: 35px !important;
-    height: 35px !important;
+    width: 45px !important;
+    height: 45px !important;
   }
 
   .social-link svg {
-    width: 16px !important;
-    height: 16px !important;
+    width: 20px !important;
+    height: 20px !important;
   }
 
   .featured-card {
-    padding: 15px !important;
-    gap: 15px !important;
+    padding: 10px !important;
+    gap: 10px !important;
     margin: auto 15px 15px 15px !important;
     max-width: calc(100% - 30px) !important;
     width: calc(100% - 30px) !important;
-    border: 3px solid #000 !important;
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9) !important;
+    border: 2px solid #000 !important;
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.9) !important;
   }
 
   .album-cover {
-    width: 120px !important;
-    height: 120px !important;
-    border: 3px solid #000 !important;
-    box-shadow: 4px 4px 0px #000 !important;
+    width: 70px !important;
+    height: 70px !important;
+    border: 2px solid #000 !important;
+    box-shadow: 3px 3px 0px #000 !important;
   }
 
   .featured-info {
-    gap: 10px !important;
+    gap: 6px !important;
   }
 
   .featured-badge {
-    padding: 6px 12px !important;
+    padding: 3px 6px !important;
   }
 
   .badge-text {
-    font-size: 0.5rem !important;
-    letter-spacing: 1px !important;
+    font-size: 0.4rem !important;
+    letter-spacing: 0.5px !important;
   }
 
   .badge-icon {
-    font-size: 0.9rem !important;
+    font-size: 0.6rem !important;
   }
 
   .artist-name {
-    font-size: 1.3rem !important;
-    letter-spacing: 1px !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.5px !important;
   }
 
   .album-info {
-    padding-top: 10px !important;
-    border-top: 3px solid #000 !important;
+    padding-top: 6px !important;
+    border-top: 2px solid #000 !important;
   }
 
   .album-label {
-    font-size: 0.55rem !important;
+    font-size: 0.4rem !important;
+    letter-spacing: 0.5px !important;
   }
 
   .album-title {
-    font-size: 1rem !important;
-    letter-spacing: 2px !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 1px !important;
   }
 }
