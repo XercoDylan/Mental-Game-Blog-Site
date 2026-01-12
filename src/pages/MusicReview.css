@@ -1,0 +1,458 @@
+/* Music Review Page - Newspaper Style */
+
+.music-review-page {
+  background: #f5f5f5;
+}
+
+.music-review-page .page-content {
+  margin: 100px auto 0;
+  padding: 0 20px 40px;
+  max-width: 1400px;
+}
+
+/* Review Header */
+.review-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px;
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
+  background: #fff;
+}
+
+.review-header-top {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.review-title {
+  font-size: 3rem;
+  margin-bottom: 8px;
+  letter-spacing: 4px;
+  line-height: 1;
+}
+
+.review-header-subtitle {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 1px;
+}
+
+/* Reviews Grid */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 35px;
+  margin-bottom: 40px;
+}
+
+/* Review Card */
+.review-card {
+  background: #fff;
+  border: 4px solid #000;
+  box-shadow: 10px 10px 0px #000;
+  overflow: hidden;
+}
+
+.review-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 12px 12px 0px #000;
+  transition: all 0.3s ease;
+}
+
+/* Review Card Header */
+.review-card-header {
+  background: #000;
+  color: #fff;
+  padding: 25px 30px;
+  border-bottom: 4px solid #000;
+}
+
+.review-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #fff;
+}
+
+.review-genre {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  background: #fff;
+  color: #000;
+  padding: 5px 12px;
+  border: 2px solid #fff;
+}
+
+.review-date {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.review-artist {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.review-album {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.3;
+  margin-bottom: 5px;
+}
+
+.review-year {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* Rating Container */
+.rating-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 25px 30px;
+  background: #f9f9f9;
+  border-bottom: 3px solid #000;
+}
+
+.rating-box {
+  background: #000;
+  color: #fff;
+  padding: 15px 25px;
+  border: 3px solid #000;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.rating-number {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.rating-scale {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.rating-label {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #333;
+}
+
+/* Review Body */
+.review-body {
+  padding: 30px;
+}
+
+.review-section-title {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  margin-top: 25px;
+}
+
+.review-section-title:first-child {
+  margin-top: 0;
+}
+
+.review-divider {
+  width: 80px;
+  height: 3px;
+  background: #000;
+  margin-bottom: 15px;
+}
+
+.review-summary {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #1a1a1a;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+/* Highlights */
+.review-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.highlight-item:last-child {
+  border-bottom: none;
+}
+
+.track-bullet {
+  font-size: 1.2rem;
+  color: #000;
+  flex-shrink: 0;
+}
+
+.track-name {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: #1a1a1a;
+}
+
+/* Verdict Box */
+.review-verdict-box {
+  background: #000;
+  color: #fff;
+  padding: 20px 25px;
+  border: 3px solid #000;
+  margin-top: 25px;
+}
+
+.verdict-label {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #fff;
+}
+
+.verdict-text {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Review Footer */
+.review-footer {
+  padding: 18px 30px;
+  background: #f9f9f9;
+  border-top: 3px solid #000;
+}
+
+.reviewer-info {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #666;
+}
+
+.reviewer-name {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-weight: 900;
+  color: #000;
+  letter-spacing: 1.5px;
+}
+
+/* Coming Soon Banner */
+.coming-soon-banner {
+  background: #000;
+  color: #fff;
+  padding: 40px;
+  text-align: center;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+.coming-soon-title {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.coming-soon-text {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .music-review-page .page-content {
+    margin: 80px auto 0;
+    padding: 0 15px 30px;
+  }
+
+  .review-header {
+    padding: 15px;
+  }
+
+  .review-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .review-header-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .reviews-grid {
+    gap: 25px;
+  }
+
+  .review-card {
+    border: 3px solid #000;
+    box-shadow: 8px 8px 0px #000;
+  }
+
+  .review-card-header {
+    padding: 20px;
+  }
+
+  .review-artist {
+    font-size: 1.5rem;
+  }
+
+  .review-album {
+    font-size: 1.2rem;
+  }
+
+  .rating-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 12px;
+  }
+
+  .rating-number {
+    font-size: 2.5rem;
+  }
+
+  .rating-scale {
+    font-size: 1.2rem;
+  }
+
+  .review-body {
+    padding: 20px;
+  }
+
+  .review-section-title {
+    font-size: 1rem;
+  }
+
+  .review-summary {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .track-name {
+    font-size: 0.9rem;
+  }
+
+  .review-verdict-box {
+    padding: 15px 20px;
+  }
+
+  .verdict-text {
+    font-size: 0.9rem;
+  }
+
+  .review-footer {
+    padding: 15px 20px;
+  }
+
+  .coming-soon-banner {
+    padding: 30px 20px;
+  }
+
+  .coming-soon-title {
+    font-size: 1.5rem;
+  }
+
+  .coming-soon-text {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-title {
+    font-size: 1.6rem;
+  }
+
+  .review-card-header {
+    padding: 15px;
+  }
+
+  .review-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .review-artist {
+    font-size: 1.3rem;
+  }
+
+  .review-album {
+    font-size: 1.1rem;
+  }
+
+  .rating-box {
+    padding: 12px 20px;
+  }
+
+  .rating-number {
+    font-size: 2rem;
+  }
+
+  .review-body {
+    padding: 15px;
+  }
+
+  .review-summary {
+    font-size: 0.9rem;
+  }
+
+  .coming-soon-title {
+    font-size: 1.3rem;
+  }
+
+  .coming-soon-text {
+    font-size: 0.9rem;
+  }
+}
