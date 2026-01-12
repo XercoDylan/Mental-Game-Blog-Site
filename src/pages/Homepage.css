@@ -371,9 +371,27 @@
 }
 
 @media (max-width: 768px) {
+  .homepage {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+
+  /* Change to flexbox layout for mobile */
+  .homepage > * {
+    position: static !important;
+  }
+
   .logo-container {
-    left: 20px;
-    top: 20px;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    max-width: 100%;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
   }
 
   .logo-text {
@@ -385,55 +403,19 @@
     letter-spacing: 2px;
   }
 
-  .nav-container {
-    left: 20px;
-    gap: 10px;
-    top: auto;
-    bottom: 140px;
-  }
-
-  .nav-button {
-    font-size: 0.85rem;
-    padding: 10px 16px;
-    min-width: 180px;
-    border: 3px solid #000;
-    box-shadow: 4px 4px 0px #000;
-  }
-
-  .nav-button:hover {
-    box-shadow: 6px 6px 0px #000;
-  }
-
-  .nav-button-arrow {
-    font-size: 1.2rem;
-  }
-
-  .social-container {
-    left: 20px;
-    bottom: 20px;
-    gap: 15px;
-  }
-
-  .social-link {
-    width: 40px;
-    height: 40px;
-  }
-
-  .social-link svg {
-    width: 18px;
-    height: 18px;
-  }
-
   .featured-card {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin: 20px auto;
     padding: 20px;
     flex-direction: column;
     gap: 20px;
     max-width: calc(100% - 40px);
     width: calc(100% - 40px);
-    top: 50%;
-    left: 50%;
-    right: auto;
-    transform: translate(-50%, -50%);
+    z-index: 10;
   }
 
   .album-cover {
@@ -478,12 +460,79 @@
   .album-title {
     font-size: 1.2rem;
   }
+
+  .nav-container {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    z-index: 10;
+  }
+
+  .nav-button {
+    font-size: 0.85rem;
+    padding: 10px 16px;
+    min-width: 180px;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0px #000;
+  }
+
+  .nav-button:hover {
+    box-shadow: 6px 6px 0px #000;
+  }
+
+  .nav-button-arrow {
+    font-size: 1.2rem;
+  }
+
+  .social-container {
+    position: relative !important;
+    left: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    z-index: 10;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-link svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Keep particles behind */
+  .particles-container {
+    position: fixed !important;
+    z-index: 1;
+  }
+
+  .featured-background {
+    position: fixed !important;
+    z-index: 0;
+  }
+
+  .featured-overlay {
+    position: fixed !important;
+    z-index: 0;
+  }
 }
 
 @media (max-width: 480px) {
   .logo-container {
-    left: 15px;
-    top: 15px;
+    padding: 15px !important;
   }
 
   .logo-text {
@@ -496,91 +545,86 @@
     letter-spacing: 1px;
   }
 
-  .nav-container {
-    left: 15px;
-    bottom: 120px;
-    gap: 8px;
-  }
-
-  .nav-button {
-    font-size: 0.75rem;
-    padding: 8px 14px;
-    min-width: 150px;
-  }
-
-  .nav-button-arrow {
-    font-size: 1rem;
-  }
-
-  .social-container {
-    left: 15px;
-    bottom: 15px;
-    gap: 12px;
-  }
-
-  .social-link {
-    width: 35px;
-    height: 35px;
-  }
-
-  .social-link svg {
-    width: 16px;
-    height: 16px;
-  }
-
   .featured-card {
-    padding: 15px;
-    gap: 15px;
-    max-width: calc(100% - 30px);
-    width: calc(100% - 30px);
-    border: 3px solid #000;
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
-    top: 50%;
-    left: 50%;
-    right: auto;
-    transform: translate(-50%, -50%);
+    padding: 15px !important;
+    gap: 15px !important;
+    margin: 15px auto !important;
+    max-width: calc(100% - 30px) !important;
+    width: calc(100% - 30px) !important;
+    border: 3px solid #000 !important;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9) !important;
   }
 
   .album-cover {
-    width: 120px;
-    height: 120px;
-    border: 3px solid #000;
-    box-shadow: 4px 4px 0px #000;
+    width: 120px !important;
+    height: 120px !important;
+    border: 3px solid #000 !important;
+    box-shadow: 4px 4px 0px #000 !important;
   }
 
   .featured-info {
-    gap: 10px;
+    gap: 10px !important;
   }
 
   .featured-badge {
-    padding: 6px 12px;
+    padding: 6px 12px !important;
   }
 
   .badge-text {
-    font-size: 0.5rem;
-    letter-spacing: 1px;
+    font-size: 0.5rem !important;
+    letter-spacing: 1px !important;
   }
 
   .badge-icon {
-    font-size: 0.9rem;
+    font-size: 0.9rem !important;
   }
 
   .artist-name {
-    font-size: 1.3rem;
-    letter-spacing: 1px;
+    font-size: 1.3rem !important;
+    letter-spacing: 1px !important;
   }
 
   .album-info {
-    padding-top: 10px;
-    border-top: 3px solid #000;
+    padding-top: 10px !important;
+    border-top: 3px solid #000 !important;
   }
 
   .album-label {
-    font-size: 0.55rem;
+    font-size: 0.55rem !important;
   }
 
   .album-title {
-    font-size: 1rem;
-    letter-spacing: 2px;
+    font-size: 1rem !important;
+    letter-spacing: 2px !important;
+  }
+
+  .nav-container {
+    padding: 15px !important;
+    gap: 8px !important;
+  }
+
+  .nav-button {
+    font-size: 0.75rem !important;
+    padding: 8px 14px !important;
+    min-width: 150px !important;
+  }
+
+  .nav-button-arrow {
+    font-size: 1rem !important;
+  }
+
+  .social-container {
+    padding: 15px !important;
+    gap: 12px !important;
+  }
+
+  .social-link {
+    width: 35px !important;
+    height: 35px !important;
+  }
+
+  .social-link svg {
+    width: 16px !important;
+    height: 16px !important;
   }
 }
