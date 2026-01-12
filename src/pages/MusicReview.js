@@ -26,7 +26,7 @@ const MusicReview = () => {
             year: data.year || '2024',
             rating: data.rating || 0,
             genre: data.genre || 'Genre',
-            reviewer: data.reviewer || 'MENTAL GAME',
+            reviewer: 'Evan J',
             date: data.date || 'Date',
             albumCover: data.albumCover || '',
             summary: data.summary || 'Review summary',
