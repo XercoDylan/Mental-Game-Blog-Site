@@ -32,27 +32,27 @@ const About = () => {
           {/* Left Column - Main Story */}
           <div className="about-column main-column">
             <div className="article-section">
-              <h2 className="section-heading">WHO WE ARE</h2>
+              <h2 className="section-heading">WHO I AM</h2>
               <div className="article-divider"></div>
               <p className="article-text">
-                <span className="drop-cap">M</span>ental Game is more than just a media platform—it's a movement dedicated to authentic music journalism. We dive deep into the world of hip-hop, bringing you exclusive interviews, honest album reviews, and genuine connections with the artists shaping culture.
+                <span className="drop-cap">M</span>y name is Evan Johnson, a media creative and psychology scholar exploring the mental and emotional worlds behind music, culture, and creative ambition. My work sits at the intersection of storytelling, research, and real human experience—focusing on how artists think, adapt, and grow in environments shaped by pressure, identity, and expectation.
               </p>
               <p className="article-text">
-                Born from a passion for discovering and championing real talent, Mental Game cuts through the noise to deliver content that matters. No corporate BS, no payola reviews—just honest perspectives on the music that moves us.
+                I created Mental Game as a space for deeper conversations with musicians, creatives, and cultural leaders. Instead of surface-level interviews, I focus on mindset, motivation, resilience, and the psychological forces that shape creative careers. The goal is simple: to understand the people behind the art and give audiences a more honest look at what success really requires.
               </p>
             </div>
 
             <div className="article-section">
-              <h2 className="section-heading">OUR MISSION</h2>
+              <h2 className="section-heading">MY BACKGROUND</h2>
               <div className="article-divider"></div>
               <p className="article-text">
-                We exist to bridge the gap between underground talent and mainstream recognition. Every interview we conduct, every review we publish, and every artist we feature is chosen because they deserve your attention—not because they paid for it.
+                When I created Mental Game, I was a junior at Morgan State University studying psychology. During that time, I earned multiple academic honors, including three appearances on the Dean's List for achieving a 4.0 GPA across three different semesters. Much of that success comes from my ability to think critically and listen deeply—skills that shape not only how I perform in academic and professional spaces, but also how I engage with music.
               </p>
               <blockquote className="pull-quote">
-                "Real music journalism for real music lovers."
+                "Understanding what you're hearing, why it feels the way it does, and what it reveals about the artist."
               </blockquote>
               <p className="article-text">
-                Our goal is simple: create a space where authenticity reigns supreme, where artists can tell their stories unfiltered, and where music fans can discover their next obsession before everyone else catches on.
+                I bring that same level of attention and analysis to every song, project, and artist I encounter. I'm especially interested in how artists communicate trauma, confidence, vulnerability, and ambition through sound, and how those emotional expressions reflect broader psychological and cultural patterns. My goal is for audiences to walk away with more than just an opinion on a song—to understand what they're hearing, why it feels the way it does, and what it reveals about the artist and the world around them.
               </p>
             </div>
           </div>

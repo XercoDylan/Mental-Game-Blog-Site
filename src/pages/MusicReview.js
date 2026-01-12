@@ -18,9 +18,9 @@ const MusicReview = () => {
       genre: 'CONSCIOUS RAP',
       reviewer: 'MENTAL GAME',
       date: 'MAY 15, 2022',
-      summary: 'Kendrick delivers his most introspective and experimental album to date, diving deep into therapy, trauma, and transformation. A bold artistic statement that challenges listeners.',
-      highlights: ['United in Grief', 'N95', 'Father Time', 'Mother I Sober'],
-      verdict: 'A masterclass in vulnerability and artistic evolution. Not easy listening, but essential.'
+      albumCover: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop',
+      summary: 'Kendrick delivers his most introspective and experimental album to date, diving deep into therapy, trauma, and transformation.',
+      verdict: 'A masterclass in vulnerability and artistic evolution. Essential listening.'
     },
     {
       id: 2,
@@ -31,9 +31,9 @@ const MusicReview = () => {
       genre: 'HIP-HOP',
       reviewer: 'MENTAL GAME',
       date: 'JUNE 25, 2021',
-      summary: 'Tyler returns to his rap roots with luxurious production and confident bars. The album feels like a victory lap from an artist fully comfortable in his own skin.',
-      highlights: ['LUMBERJACK', 'WUSYANAME', 'MASSA', 'SWEET / I THOUGHT YOU WANTED TO DANCE'],
-      verdict: 'Tyler proves he can still rap his ass off while maintaining his signature sonic palette.'
+      albumCover: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=400&fit=crop',
+      summary: 'Tyler returns to his rap roots with luxurious production and confident bars. A victory lap from an artist fully comfortable in his own skin.',
+      verdict: 'Tyler proves he can still rap while maintaining his signature sonic palette.'
     },
     {
       id: 3,
@@ -44,9 +44,22 @@ const MusicReview = () => {
       genre: 'RAP',
       reviewer: 'MENTAL GAME',
       date: 'MAY 14, 2021',
-      summary: 'Cole comes through with polished bars and production, showcasing technical prowess. Solid project but plays it safe compared to his more ambitious works.',
-      highlights: ['95 south', 'amari', 'my life', 'hunger on hillside'],
-      verdict: 'A technically impressive album that satisfies but doesn\'t quite reach his previous heights.'
+      albumCover: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&h=400&fit=crop',
+      summary: 'Cole comes through with polished bars and production, showcasing technical prowess. Solid project that plays it safe.',
+      verdict: 'Technically impressive but doesn\'t quite reach his previous heights.'
+    },
+    {
+      id: 4,
+      artist: 'TRAVIS SCOTT',
+      album: 'UTOPIA',
+      year: '2023',
+      rating: 8.5,
+      genre: 'TRAP',
+      reviewer: 'MENTAL GAME',
+      date: 'JULY 28, 2023',
+      albumCover: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=400&fit=crop',
+      summary: 'Travis delivers psychedelic production and maximalist soundscapes. A sonic journey that pushes boundaries.',
+      verdict: 'Travis continues to innovate and create immersive musical experiences.'
     }
   ];
 
@@ -80,53 +93,38 @@ const MusicReview = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              {/* Review Header */}
-              <div className="review-card-header">
-                <div className="review-meta">
-                  <span className="review-genre">{review.genre}</span>
-                  <span className="review-date">{review.date}</span>
-                </div>
-                <div className="review-artist">{review.artist}</div>
-                <div className="review-album">"{review.album}"</div>
-                <div className="review-year">({review.year})</div>
-              </div>
-
-              {/* Rating Box */}
-              <div className="rating-container">
-                <div className="rating-box">
+              {/* Album Cover */}
+              <div className="review-album-cover">
+                <img src={review.albumCover} alt={review.album} className="album-image" />
+                <div className="rating-badge">
                   <div className="rating-number">{review.rating}</div>
-                  <div className="rating-scale">/ 10</div>
-                </div>
-                <div className="rating-label">MENTAL GAME SCORE</div>
-              </div>
-
-              {/* Review Body */}
-              <div className="review-body">
-                <h3 className="review-section-title">THE TAKE</h3>
-                <div className="review-divider"></div>
-                <p className="review-summary">{review.summary}</p>
-
-                <h3 className="review-section-title">STANDOUT TRACKS</h3>
-                <div className="review-divider"></div>
-                <ul className="review-highlights">
-                  {review.highlights.map((track, idx) => (
-                    <li key={idx} className="highlight-item">
-                      <span className="track-bullet">♪</span>
-                      <span className="track-name">{track}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="review-verdict-box">
-                  <div className="verdict-label">VERDICT</div>
-                  <p className="verdict-text">{review.verdict}</p>
+                  <div className="rating-scale">/10</div>
                 </div>
               </div>
 
-              {/* Review Footer */}
-              <div className="review-footer">
-                <div className="reviewer-info">
-                  REVIEWED BY <span className="reviewer-name">{review.reviewer}</span>
+              {/* Review Content */}
+              <div className="review-content">
+                <div className="review-header">
+                  <div className="review-meta">
+                    <span className="review-genre">{review.genre}</span>
+                    <span className="review-date">{review.date}</span>
+                  </div>
+                  <h3 className="review-artist">{review.artist}</h3>
+                  <div className="review-album-title">"{review.album}"</div>
+                  <div className="review-year">({review.year})</div>
+                </div>
+
+                <div className="review-body">
+                  <p className="review-summary">{review.summary}</p>
+                  <div className="review-verdict">
+                    <span className="verdict-label">VERDICT:</span>
+                    <span className="verdict-text">{review.verdict}</span>
+                  </div>
+                </div>
+
+                <div className="review-footer">
+                  <span className="reviewer-label">REVIEWED BY</span>
+                  <span className="reviewer-name">{review.reviewer}</span>
                 </div>
               </div>
             </motion.article>

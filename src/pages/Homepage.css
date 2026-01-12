@@ -56,9 +56,9 @@
 
 /* Featured Artist Card - New Design */
 .featured-card {
-  position: absolute;
-  top: 50%;
-  left: 45%;
+  position: fixed;
+  top: 50vh;
+  left: 45vw;
   transform: translate(-50%, -50%);
   z-index: 10;
   display: flex;
@@ -479,13 +479,13 @@
     left: auto !important;
     right: auto !important;
     transform: none !important;
-    margin: auto auto 20px auto;
-    padding: 12px;
-    flex-direction: row;
+    margin: auto 20px 30px 20px;
+    padding: 20px;
+    flex-direction: column;
     align-items: center;
-    gap: 12px;
-    max-width: 300px;
-    width: auto;
+    gap: 15px;
+    max-width: calc(100% - 40px);
+    width: calc(100% - 40px);
     z-index: 10;
     order: 4;
     border: 3px solid #000;
@@ -493,51 +493,51 @@
   }
 
   .album-cover {
-    width: 70px;
-    height: 70px;
+    width: 120px;
+    height: 120px;
   }
 
   .featured-info {
-    flex: 1;
-    gap: 6px;
-    text-align: left;
+    width: 100%;
+    gap: 10px;
+    text-align: center;
   }
 
   .featured-badge {
-    justify-content: flex-start;
+    justify-content: center;
     width: 100%;
-    padding: 3px 6px;
+    padding: 6px 12px;
   }
 
   .badge-text {
-    font-size: 0.4rem;
-    letter-spacing: 0.5px;
+    font-size: 0.55rem;
+    letter-spacing: 1px;
   }
 
   .badge-icon {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 
   .artist-name {
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
   }
 
   .album-info {
-    border-left: 2px solid #000;
-    border-top: none;
-    padding-left: 6px;
-    padding-top: 0;
+    border-left: none;
+    border-top: 3px solid #000;
+    padding-left: 0;
+    padding-top: 10px;
   }
 
   .album-label {
-    font-size: 0.4rem;
-    letter-spacing: 0.5px;
+    font-size: 0.55rem;
+    letter-spacing: 1px;
   }
 
   .album-title {
-    font-size: 0.75rem;
-    letter-spacing: 0.5px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
   }
 }
 
@@ -589,63 +589,63 @@
   }
 
   .featured-card {
-    padding: 10px !important;
-    gap: 10px !important;
-    margin: auto auto 15px auto !important;
-    max-width: 280px !important;
-    width: auto !important;
-    border: 2px solid #000 !important;
+    padding: 18px !important;
+    gap: 12px !important;
+    margin: auto 15px 25px 15px !important;
+    max-width: calc(100% - 30px) !important;
+    width: calc(100% - 30px) !important;
+    border: 3px solid #000 !important;
     box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.9) !important;
-    flex-direction: row !important;
+    flex-direction: column !important;
     align-items: center !important;
   }
 
   .album-cover {
-    width: 60px !important;
-    height: 60px !important;
-    border: 2px solid #000 !important;
-    box-shadow: 3px 3px 0px #000 !important;
+    width: 100px !important;
+    height: 100px !important;
+    border: 3px solid #000 !important;
+    box-shadow: 4px 4px 0px #000 !important;
   }
 
   .featured-info {
-    gap: 5px !important;
-    flex: 1 !important;
-    text-align: left !important;
+    gap: 8px !important;
+    width: 100% !important;
+    text-align: center !important;
   }
 
   .featured-badge {
-    padding: 2px 5px !important;
-    justify-content: flex-start !important;
+    padding: 5px 10px !important;
+    justify-content: center !important;
   }
 
   .badge-text {
-    font-size: 0.35rem !important;
-    letter-spacing: 0.3px !important;
+    font-size: 0.5rem !important;
+    letter-spacing: 0.8px !important;
   }
 
   .badge-icon {
-    font-size: 0.5rem !important;
+    font-size: 0.7rem !important;
   }
 
   .artist-name {
-    font-size: 0.75rem !important;
-    letter-spacing: 0.3px !important;
+    font-size: 1.2rem !important;
+    letter-spacing: 1px !important;
   }
 
   .album-info {
-    padding-top: 0 !important;
-    padding-left: 5px !important;
-    border-top: none !important;
-    border-left: 2px solid #000 !important;
+    padding-top: 8px !important;
+    padding-left: 0 !important;
+    border-top: 3px solid #000 !important;
+    border-left: none !important;
   }
 
   .album-label {
-    font-size: 0.35rem !important;
-    letter-spacing: 0.3px !important;
+    font-size: 0.5rem !important;
+    letter-spacing: 0.8px !important;
   }
 
   .album-title {
-    font-size: 0.65rem !important;
-    letter-spacing: 0.5px !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 1px !important;
   }
 }
