@@ -73,7 +73,8 @@
 .review-album-cover {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
+  max-height: 300px;
   overflow: hidden;
   border-bottom: 4px solid #000;
 }

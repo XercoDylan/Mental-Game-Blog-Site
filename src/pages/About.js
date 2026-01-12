@@ -60,7 +60,7 @@ const About = () => {
           {/* Right Column - Additional Info */}
           <div className="about-column sidebar-column">
             <div className="info-box">
-              <h3 className="info-box-title">WHAT WE DO</h3>
+              <h3 className="info-box-title">WHAT I DO</h3>
               <div className="info-divider"></div>
               <ul className="info-list">
                 <li className="info-item">
@@ -87,7 +87,7 @@ const About = () => {
             </div>
 
             <div className="info-box">
-              <h3 className="info-box-title">OUR VALUES</h3>
+              <h3 className="info-box-title">MY VALUES</h3>
               <div className="info-divider"></div>
               <div className="value-item">
                 <div className="value-number">01</div>
@@ -100,7 +100,7 @@ const About = () => {
                 <div className="value-number">02</div>
                 <div className="value-content">
                   <h4 className="value-title">INTEGRITY</h4>
-                  <p className="value-desc">We can't be bought or influenced</p>
+                  <p className="value-desc">I can't be bought or influenced</p>
                 </div>
               </div>
               <div className="value-item">
@@ -119,7 +119,7 @@ const About = () => {
                 Building Mental Game into a trusted voice in music media—where artists want to be featured and fans come for real recommendations.
               </p>
               <p className="info-text">
-                From interviews to documentaries, festival coverage to industry insights, we're creating a comprehensive platform for hip-hop culture.
+                From interviews to documentaries, festival coverage to industry insights, I'm creating a comprehensive platform for hip-hop culture.
               </p>
             </div>
           </div>
