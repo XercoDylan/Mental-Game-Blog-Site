@@ -5,7 +5,6 @@ import Homepage from './pages/Homepage';
 import About from './pages/About';
 import Interview from './pages/Interview';
 import MusicReview from './pages/MusicReview';
-import FanRanking from './pages/FanRanking';
 import MyMusicTaste from './pages/MyMusicTaste';
 import Featured from './pages/Featured';
 import './App.css';
@@ -20,7 +19,6 @@ function AnimatedRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/interview" element={<Interview />} />
         <Route path="/music-review" element={<MusicReview />} />
-        <Route path="/fan-ranking" element={<FanRanking />} />
         <Route path="/my-music-taste" element={<MyMusicTaste />} />
         <Route path="/featured" element={<Featured />} />
       </Routes>

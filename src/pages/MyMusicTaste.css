@@ -47,70 +47,33 @@
 
 /* Main Content Grid */
 .taste-main-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   margin-bottom: 30px;
 }
 
-/* Section Styles */
-.taste-section {
+/* Artist Section */
+.artist-section {
   background: #fff;
   border: 4px solid #000;
   box-shadow: 8px 8px 0px #000;
-  padding: 30px;
+  padding: 0;
+  overflow: hidden;
 }
 
-.section-header {
-  margin-bottom: 25px;
-  padding-bottom: 15px;
-  border-bottom: 4px solid #000;
-}
-
-.section-title {
-  font-family: 'Arial Black', 'Helvetica', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-  line-height: 1.2;
-}
-
-.section-subtitle {
-  font-family: 'Arial', 'Helvetica', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  color: #666;
-}
-
-/* Artists Section */
-.artists-list {
+.artist-header {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 20px;
-}
-
-.artist-card {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
   padding: 20px;
+  border-bottom: 4px solid #000;
   background: #f9f9f9;
-  border-left: 5px solid #000;
-  transition: all 0.3s ease;
 }
 
-.artist-card:hover {
-  background: #000;
-  color: #fff;
-  transform: translateX(5px);
-}
-
-.artist-rank-circle {
-  width: 50px;
-  height: 50px;
+.artist-rank-badge {
+  width: 60px;
+  height: 60px;
   background: #000;
   color: #fff;
   border-radius: 50%;
@@ -118,43 +81,81 @@
   align-items: center;
   justify-content: center;
   font-family: 'Arial Black', 'Helvetica', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 900;
   flex-shrink: 0;
   border: 3px solid #000;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
-.artist-card:hover .artist-rank-circle {
-  background: #fff;
-  color: #000;
-}
-
-.artist-content {
+.artist-header-content {
   flex: 1;
 }
 
-.artist-name {
+.artist-name-large {
   font-family: 'Arial Black', 'Helvetica', sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   font-weight: 900;
   letter-spacing: 1.5px;
-  margin-bottom: 10px;
-  line-height: 1.2;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  line-height: 1.1;
+  color: #000;
 }
 
-.artist-reason {
+.artist-reason-text {
   font-family: 'Georgia', 'Times New Roman', serif;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: #333;
   margin: 0;
 }
 
-.artist-card:hover .artist-reason {
-  color: #fff;
+/* Playlist Container */
+.playlist-container {
+  padding: 20px;
 }
 
-/* Ranking Section */
+.playlist-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #000;
+}
+
+.playlist-icon {
+  font-size: 1.5rem;
+}
+
+.playlist-title {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #000;
+}
+
+.spotify-embed {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.no-playlist {
+  padding: 40px;
+  text-align: center;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: #666;
+}
+
+/* Old Ranking Section - Remove */
 .ranking-list {
   display: flex;
   flex-direction: column;
@@ -495,6 +496,69 @@
   word-wrap: break-word;
 }
 
+/* What I'm Listening To Section */
+.listening-section {
+  background: #fff;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0px #000;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.listening-header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 4px solid #000;
+}
+
+.listening-header-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.listening-title {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin: 10px 0;
+  color: #000;
+}
+
+.listening-subtitle {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: 1px;
+}
+
+.listening-playlist {
+  margin-bottom: 20px;
+}
+
+.playlist-embed {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.listening-description {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  padding: 0 20px;
+  font-style: italic;
+}
+
 /* Bottom Note */
 .taste-note {
   background: #000;
@@ -559,51 +623,33 @@
     width: 100%;
   }
 
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .artist-card {
-    padding: 15px;
+  .artist-header {
+    padding: 20px;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
-  .artist-rank-circle {
-    width: 45px;
-    height: 45px;
-    font-size: 1.3rem;
+  .artist-rank-badge {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
   }
 
-  .artist-name {
-    font-size: 1.1rem;
+  .artist-name-large {
+    font-size: 2rem;
   }
 
-  .artist-reason {
-    font-size: 0.85rem;
+  .artist-reason-text {
+    font-size: 1rem;
   }
 
-  .ranking-item {
-    padding: 12px;
-    gap: 15px;
+  .playlist-container {
+    padding: 20px;
   }
 
-  .ranking-number {
-    font-size: 1.5rem;
-    width: 35px;
-  }
-
-  .ranking-song {
-    font-size: 0.95rem;
-  }
-
-  .ranking-artist {
-    font-size: 0.85rem;
-  }
-
-  .ranking-album {
-    font-size: 0.7rem;
+  .playlist-title {
+    font-size: 1rem;
   }
 
   .taste-note {
@@ -613,6 +659,22 @@
   .note-text {
     font-size: 0.95rem;
   }
+
+  .listening-section {
+    padding: 20px;
+    border: 3px solid #000;
+    box-shadow: 6px 6px 0px #000;
+  }
+
+  .listening-title {
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+  }
+
+  .listening-description {
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -620,44 +682,39 @@
     font-size: 1.6rem;
   }
 
-  .taste-section {
+  .artist-section {
+    border: 3px solid #000;
+    box-shadow: 6px 6px 0px #000;
+  }
+
+  .artist-header {
     padding: 15px;
   }
 
-  .section-title {
-    font-size: 1.3rem;
+  .artist-rank-badge {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
   }
 
-  .section-subtitle {
-    font-size: 0.7rem;
+  .artist-name-large {
+    font-size: 1.5rem;
   }
 
-  .artist-card {
-    padding: 12px;
+  .artist-reason-text {
+    font-size: 0.9rem;
   }
 
-  .artist-rank-circle {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
+  .playlist-container {
+    padding: 15px;
   }
 
-  .artist-name {
-    font-size: 1rem;
+  .playlist-title {
+    font-size: 0.9rem;
   }
 
-  .artist-reason {
-    font-size: 0.8rem;
-  }
-
-  .ranking-item {
-    padding: 10px;
-    gap: 12px;
-  }
-
-  .ranking-number {
-    font-size: 1.3rem;
-    width: 30px;
+  .spotify-embed {
+    height: 300px;
   }
 
   .ranking-song {
@@ -673,6 +730,22 @@
   }
 
   .note-text {
+    font-size: 0.9rem;
+  }
+
+  .listening-section {
+    padding: 15px;
+  }
+
+  .listening-title {
+    font-size: 1.3rem;
+  }
+
+  .listening-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .listening-description {
     font-size: 0.9rem;
   }
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '../firebase';
 import './Page.css';
 import './Interview.css';
@@ -33,18 +33,35 @@ const Interview = () => {
     const fetchInterviews = async () => {
       try {
         const interviewsCollection = collection(db, 'interviews');
-        const interviewSnapshot = await getDocs(interviewsCollection);
+        const interviewsQuery = query(interviewsCollection, orderBy('date', 'desc'));
+        const interviewSnapshot = await getDocs(interviewsQuery);
 
         const interviewList = interviewSnapshot.docs.map(doc => {
           const data = doc.data();
           const videoId = extractVideoId(data.link);
+
+          // Convert Firestore Timestamp to readable date string
+          let dateString = 'Date';
+          if (data.date) {
+            if (data.date.toDate) {
+              // It's a Firestore Timestamp
+              dateString = data.date.toDate().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              });
+            } else if (typeof data.date === 'string') {
+              // It's already a string
+              dateString = data.date;
+            }
+          }
 
           return {
             id: videoId || doc.id,
             artist: data.artist || 'Artist Name',
             title: data.title || 'Interview Title',
             description: data.description || 'Interview description',
-            date: data.date || 'Date',
+            date: dateString,
             tags: data.tags || [],
             link: data.link
           };
