@@ -27,7 +27,8 @@ const MyMusicTaste = () => {
             rank: data.rank || 0,
             name: data.name || 'Artist Name',
             reason: data.reason || 'Artist description',
-            songUrl: data.songUrl || data.playlistUrl || ''
+            songUrl: data.songUrl || data.playlistUrl || '',
+            imageUrl: data.imageUrl || ''
           };
         });
 
@@ -137,6 +138,13 @@ const MyMusicTaste = () => {
                 {/* Artist Header */}
                 <div className="artist-header">
                   <div className="artist-rank-badge">#{artist.rank}</div>
+                  {artist.imageUrl && (
+                    <img
+                      src={artist.imageUrl}
+                      alt={artist.name}
+                      className="artist-image"
+                    />
+                  )}
                   <div className="artist-header-content">
                     <h2 className="artist-name-large">{artist.name}</h2>
                     <p className="artist-reason-text">{artist.reason}</p>
