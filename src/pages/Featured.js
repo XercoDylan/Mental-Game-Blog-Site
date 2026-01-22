@@ -136,20 +136,6 @@ const Featured = () => {
               />
             </motion.div>
           )}
-          {featuredArtist.image2Url && (
-            <motion.div
-              className="featured-image-container"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <img
-                src={featuredArtist.image2Url}
-                alt={`${featuredArtist.name} - Image 2`}
-                className="featured-artist-image"
-              />
-            </motion.div>
-          )}
         </div>
 
         {/* Intro Text */}
@@ -266,6 +252,23 @@ const Featured = () => {
                   </a>
                 )}
               </div>
+            </motion.div>
+          )}
+        </div>
+
+                <div className="featured-images-row">
+          {featuredArtist.image2Url && (
+            <motion.div
+              className="featured-image-container"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <img
+                src={featuredArtist.image2Url}
+                alt={`${featuredArtist.name} - Image 2`}
+                className="featured-artist-image"
+              />
             </motion.div>
           )}
         </div>

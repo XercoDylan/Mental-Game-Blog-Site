@@ -47,7 +47,8 @@
 
 /* Artist Images Row */
 .featured-images-row {
-  display: grid;
+  display: flex;
+  justify-content: center;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   margin-bottom: 40px;

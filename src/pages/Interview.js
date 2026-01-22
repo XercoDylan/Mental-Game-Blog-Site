@@ -38,10 +38,12 @@ const Interview = () => {
           const data = doc.data();
 
           // Convert Firestore Timestamp to readable date string
+          let sortDate = new Date(0);
           let dateString = 'Date';
           if (data.date) {
             if (data.date.toDate) {
               // It's a Firestore Timestamp
+              sortDate = data.date.toDate();
               dateString = data.date.toDate().toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
@@ -50,6 +52,7 @@ const Interview = () => {
             } else if (typeof data.date === 'string') {
               // It's already a string
               dateString = data.date;
+              sortDate = new Date(data.date);
             }
           }
 
@@ -59,11 +62,12 @@ const Interview = () => {
             title: data.title || 'Interview Title',
             description: data.description || 'Interview description',
             date: dateString,
+            sortDate: sortDate,
             tags: data.tags || [],
             link: data.link
           };
         });
-
+        interviewList.sort((a, b) => b.sortDate - a.sortDate);
         setInterviews(interviewList);
         setLoading(false);
       } catch (error) {
