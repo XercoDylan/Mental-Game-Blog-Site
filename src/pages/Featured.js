@@ -67,7 +67,7 @@ const Featured = () => {
 
         <div className="page-content">
           <div className="featured-page-header">
-            <h1 className="page-title">FEATURED ARTIST</h1>
+            <h1 className="page-title">FEATURED FIGURE</h1>
             <p className="featured-subtitle">Loading featured artist...</p>
           </div>
         </div>
