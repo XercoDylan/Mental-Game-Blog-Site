@@ -112,6 +112,12 @@
   color: #000;
 }
 
+.artist-reason-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .artist-reason-text {
   font-family: 'Georgia', 'Times New Roman', serif;
   font-size: 1rem;

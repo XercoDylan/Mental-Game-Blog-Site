@@ -147,7 +147,11 @@ const MyMusicTaste = () => {
                   )}
                   <div className="artist-header-content">
                     <h2 className="artist-name-large">{artist.name}</h2>
-                    <p className="artist-reason-text">{artist.reason}</p>
+                    <div className="artist-reason-content">
+                      {artist.reason.split('\n').map((paragraph, idx) => (
+                        paragraph.trim() && <p key={idx} className="artist-reason-text">{paragraph}</p>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
