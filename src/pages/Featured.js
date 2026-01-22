@@ -22,16 +22,24 @@ const Featured = () => {
           const data = featuredSnapshot.docs[0].data();
           setFeaturedArtist({
             id: featuredSnapshot.docs[0].id,
-            name: data.name || 'Artist Name',
-            genre: data.genre || 'Hip-Hop',
+            name: data.name || 'Featured Name',
+            subtitle: data.subtitle || '',
             image1Url: data.image1Url || '',
             image2Url: data.image2Url || '',
-            story: data.story || 'Artist story',
-            background: data.background || 'Artist background',
-            impact: data.impact || 'Artist impact on music',
-            spotifyLink: data.spotifyLink || '',
-            appleMusicLink: data.appleMusicLink || '',
-            youtubeLink: data.youtubeLink || ''
+            intro: data.intro || '',
+            section1Title: data.section1Title || 'THE STORY',
+            section1Subtitle: data.section1Subtitle || '',
+            section1Text: data.section1Text || '',
+            section2Title: data.section2Title || 'THE EXPERIENCE',
+            section2Subtitle: data.section2Subtitle || '',
+            section2Text: data.section2Text || '',
+            section3Title: data.section3Title || 'THE TAKEAWAY',
+            section3Subtitle: data.section3Subtitle || '',
+            section3Text: data.section3Text || '',
+            link1Url: data.link1Url || '',
+            link1Label: data.link1Label || '',
+            link2Url: data.link2Url || '',
+            link2Label: data.link2Label || ''
           });
         }
         setLoading(false);
@@ -105,9 +113,11 @@ const Featured = () => {
       <div className="page-content">
         {/* Header */}
         <div className="featured-header">
-          <div className="featured-header-top">SPOTLIGHT SELECTION</div>
-          <h1 className="page-title featured-title">FEATURED ARTIST</h1>
-          <div className="featured-header-subtitle">{featuredArtist.name.toUpperCase()}</div>
+          <div className="featured-header-top">FEATURED ARTIST</div>
+          <h1 className="page-title featured-title">{featuredArtist.name.toUpperCase()}</h1>
+          {featuredArtist.subtitle && (
+            <div className="featured-header-subtitle">{featuredArtist.subtitle}</div>
+          )}
         </div>
 
         {/* Artist Images Row */}
@@ -142,91 +152,117 @@ const Featured = () => {
           )}
         </div>
 
-        {/* Artist Story Content */}
-        <div className="featured-story-content">
-          {/* The Story Section */}
+        {/* Intro Text */}
+        {featuredArtist.intro && (
           <motion.div
-            className="featured-section"
+            className="featured-intro"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="section-header">
-              <h2 className="section-title">THE STORY</h2>
-              <div className="section-subtitle">THE JOURNEY OF {featuredArtist.name.toUpperCase()}</div>
-            </div>
-            <p className="section-text">{featuredArtist.story}</p>
+            <p className="intro-text">{featuredArtist.intro}</p>
           </motion.div>
+        )}
 
-          {/* Background Section */}
-          <motion.div
-            className="featured-section"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <div className="section-header">
-              <h2 className="section-title">BACKGROUND</h2>
-              <div className="section-subtitle">WHERE THEY CAME FROM</div>
-            </div>
-            <p className="section-text">{featuredArtist.background}</p>
-          </motion.div>
+        {/* Story Content */}
+        <div className="featured-story-content">
+          {/* Section 1 */}
+          {featuredArtist.section1Text && (
+            <motion.div
+              className="featured-section"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <div className="section-header">
+                <h2 className="section-title">{featuredArtist.section1Title}</h2>
+                {featuredArtist.section1Subtitle && (
+                  <div className="section-subtitle">{featuredArtist.section1Subtitle}</div>
+                )}
+              </div>
+              <div className="section-text-content">
+                {featuredArtist.section1Text.split('\n').map((paragraph, idx) => (
+                  paragraph.trim() && <p key={idx} className="section-text">{paragraph}</p>
+                ))}
+              </div>
+            </motion.div>
+          )}
 
-          {/* Impact Section */}
-          <motion.div
-            className="featured-section"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            <div className="section-header">
-              <h2 className="section-title">IMPACT</h2>
-              <div className="section-subtitle">WHY THIS ARTIST MATTERS</div>
-            </div>
-            <p className="section-text">{featuredArtist.impact}</p>
-          </motion.div>
+          {/* Section 2 */}
+          {featuredArtist.section2Text && (
+            <motion.div
+              className="featured-section"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <div className="section-header">
+                <h2 className="section-title">{featuredArtist.section2Title}</h2>
+                {featuredArtist.section2Subtitle && (
+                  <div className="section-subtitle">{featuredArtist.section2Subtitle}</div>
+                )}
+              </div>
+              <div className="section-text-content">
+                {featuredArtist.section2Text.split('\n').map((paragraph, idx) => (
+                  paragraph.trim() && <p key={idx} className="section-text">{paragraph}</p>
+                ))}
+              </div>
+            </motion.div>
+          )}
 
-          {/* Streaming Links */}
-          {(featuredArtist.spotifyLink || featuredArtist.appleMusicLink || featuredArtist.youtubeLink) && (
+          {/* Section 3 */}
+          {featuredArtist.section3Text && (
+            <motion.div
+              className="featured-section"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+            >
+              <div className="section-header">
+                <h2 className="section-title">{featuredArtist.section3Title}</h2>
+                {featuredArtist.section3Subtitle && (
+                  <div className="section-subtitle">{featuredArtist.section3Subtitle}</div>
+                )}
+              </div>
+              <div className="section-text-content">
+                {featuredArtist.section3Text.split('\n').map((paragraph, idx) => (
+                  paragraph.trim() && <p key={idx} className="section-text">{paragraph}</p>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* Links Section */}
+          {(featuredArtist.link1Url || featuredArtist.link2Url) && (
             <motion.div
               className="featured-section streaming-section"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.0 }}
+              transition={{ duration: 0.6, delay: 1.1 }}
             >
               <div className="section-header">
-                <h2 className="section-title">LISTEN NOW</h2>
-                <div className="section-subtitle">STREAM {featuredArtist.name.toUpperCase()}'S MUSIC</div>
+                <h2 className="section-title">LEARN MORE</h2>
+                <div className="section-subtitle">CONNECT WITH {featuredArtist.name.toUpperCase()}</div>
               </div>
               <div className="streaming-buttons-row">
-                {featuredArtist.spotifyLink && (
+                {featuredArtist.link1Url && (
                   <a
-                    href={featuredArtist.spotifyLink}
+                    href={featuredArtist.link1Url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="streaming-button spotify"
+                    className="streaming-button"
                   >
-                    SPOTIFY →
+                    {featuredArtist.link1Label || 'LINK 1'} →
                   </a>
                 )}
-                {featuredArtist.appleMusicLink && (
+                {featuredArtist.link2Url && (
                   <a
-                    href={featuredArtist.appleMusicLink}
+                    href={featuredArtist.link2Url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="streaming-button apple"
+                    className="streaming-button"
                   >
-                    APPLE MUSIC →
-                  </a>
-                )}
-                {featuredArtist.youtubeLink && (
-                  <a
-                    href={featuredArtist.youtubeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="streaming-button youtube"
-                  >
-                    YOUTUBE →
+                    {featuredArtist.link2Label || 'LINK 2'} →
                   </a>
                 )}
               </div>
