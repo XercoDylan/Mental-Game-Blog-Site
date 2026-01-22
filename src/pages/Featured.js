@@ -23,13 +23,12 @@ const Featured = () => {
           setFeaturedArtist({
             id: featuredSnapshot.docs[0].id,
             name: data.name || 'Artist Name',
-            album: data.album || 'Album Title',
-            year: data.year || '2024',
-            albumCover: data.albumCover || '',
-            bio: data.bio || 'Artist biography',
             genre: data.genre || 'Hip-Hop',
-            musicSignificance: data.musicSignificance || 'Artist music significance',
-            favoriteSongs: data.favoriteSongs || [],
+            image1Url: data.image1Url || '',
+            image2Url: data.image2Url || '',
+            story: data.story || 'Artist story',
+            background: data.background || 'Artist background',
+            impact: data.impact || 'Artist impact on music',
             spotifyLink: data.spotifyLink || '',
             appleMusicLink: data.appleMusicLink || '',
             youtubeLink: data.youtubeLink || ''
@@ -111,30 +110,95 @@ const Featured = () => {
           <div className="featured-header-subtitle">{featuredArtist.name.toUpperCase()}</div>
         </div>
 
-        {/* Two Column Layout */}
-        <div className="featured-main-content">
-          {/* Album Cover Card */}
+        {/* Artist Images Row */}
+        <div className="featured-images-row">
+          {featuredArtist.image1Url && (
+            <motion.div
+              className="featured-image-container"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <img
+                src={featuredArtist.image1Url}
+                alt={`${featuredArtist.name} - Image 1`}
+                className="featured-artist-image"
+              />
+            </motion.div>
+          )}
+          {featuredArtist.image2Url && (
+            <motion.div
+              className="featured-image-container"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <img
+                src={featuredArtist.image2Url}
+                alt={`${featuredArtist.name} - Image 2`}
+                className="featured-artist-image"
+              />
+            </motion.div>
+          )}
+        </div>
+
+        {/* Artist Story Content */}
+        <div className="featured-story-content">
+          {/* The Story Section */}
           <motion.div
-            className="featured-album-card"
+            className="featured-section"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <img
-              src={featuredArtist.albumCover}
-              alt={featuredArtist.album}
-              className="featured-album-image"
-            />
-            <div className="album-card-info">
-              <h3 className="album-card-title">{featuredArtist.album}</h3>
-              <p className="album-card-artist">{featuredArtist.name}</p>
-              <p className="album-card-genre">{featuredArtist.genre} • {featuredArtist.year}</p>
+            <div className="section-header">
+              <h2 className="section-title">THE STORY</h2>
+              <div className="section-subtitle">THE JOURNEY OF {featuredArtist.name.toUpperCase()}</div>
             </div>
+            <p className="section-text">{featuredArtist.story}</p>
+          </motion.div>
 
-            {/* Streaming Links */}
-            {(featuredArtist.spotifyLink || featuredArtist.appleMusicLink || featuredArtist.youtubeLink) && (
-              <div className="streaming-links">
-                <p className="streaming-label">LISTEN NOW</p>
+          {/* Background Section */}
+          <motion.div
+            className="featured-section"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <div className="section-header">
+              <h2 className="section-title">BACKGROUND</h2>
+              <div className="section-subtitle">WHERE THEY CAME FROM</div>
+            </div>
+            <p className="section-text">{featuredArtist.background}</p>
+          </motion.div>
+
+          {/* Impact Section */}
+          <motion.div
+            className="featured-section"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <div className="section-header">
+              <h2 className="section-title">IMPACT</h2>
+              <div className="section-subtitle">WHY THIS ARTIST MATTERS</div>
+            </div>
+            <p className="section-text">{featuredArtist.impact}</p>
+          </motion.div>
+
+          {/* Streaming Links */}
+          {(featuredArtist.spotifyLink || featuredArtist.appleMusicLink || featuredArtist.youtubeLink) && (
+            <motion.div
+              className="featured-section streaming-section"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+            >
+              <div className="section-header">
+                <h2 className="section-title">LISTEN NOW</h2>
+                <div className="section-subtitle">STREAM {featuredArtist.name.toUpperCase()}'S MUSIC</div>
+              </div>
+              <div className="streaming-buttons-row">
                 {featuredArtist.spotifyLink && (
                   <a
                     href={featuredArtist.spotifyLink}
@@ -166,73 +230,8 @@ const Featured = () => {
                   </a>
                 )}
               </div>
-            )}
-          </motion.div>
-
-          {/* Content Column */}
-          <div className="featured-content-column">
-            {/* About This Artist Section */}
-            <motion.div
-              className="featured-section"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <div className="section-header">
-                <h2 className="section-title">ABOUT THIS ARTIST</h2>
-                <div className="section-subtitle">WHO THEY ARE & WHERE THEY CAME FROM</div>
-              </div>
-              <p className="section-text">{featuredArtist.bio}</p>
             </motion.div>
-
-            {/* Music Significance Section */}
-            <motion.div
-              className="featured-section"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <div className="section-header">
-                <h2 className="section-title">MUSIC SIGNIFICANCE</h2>
-                <div className="section-subtitle">WHY THIS ARTIST MATTERS</div>
-              </div>
-              <p className="section-text">{featuredArtist.musicSignificance}</p>
-            </motion.div>
-
-            {/* My Favorite Songs Section */}
-            {featuredArtist.favoriteSongs && featuredArtist.favoriteSongs.length > 0 && (
-              <motion.div
-                className="featured-section"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
-                <div className="section-header">
-                  <h2 className="section-title">MY FAVORITE SONGS</h2>
-                  <div className="section-subtitle">ESSENTIAL TRACKS TO START WITH</div>
-                </div>
-                <div className="favorite-songs-list">
-                  {featuredArtist.favoriteSongs.map((song, index) => (
-                    <motion.div
-                      key={index}
-                      className="favorite-song-item"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: 1 + index * 0.1 }}
-                    >
-                      <div className="song-number">{index + 1}</div>
-                      <div className="song-info">
-                        <div className="song-title">{song.title || song}</div>
-                        {song.reason && (
-                          <div className="song-reason">{song.reason}</div>
-                        )}
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </div>
+          )}
         </div>
       </div>
     </motion.div>

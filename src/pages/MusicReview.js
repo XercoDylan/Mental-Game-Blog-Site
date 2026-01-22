@@ -211,18 +211,19 @@ const MusicReview = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                {/* Album Cover */}
-                <div className="review-album-cover">
-                  <img src={review.albumCover} alt={review.album} className="album-image" />
-                  <div className="rating-badge">
-                    <div className="rating-number">{review.rating}</div>
-                    <div className="rating-scale">/10</div>
+                {/* Top Section - Album Cover + Info */}
+                <div className="review-top">
+                  {/* Album Cover */}
+                  <div className="review-album-cover">
+                    <img src={review.albumCover} alt={review.album} className="album-image" />
+                    <div className="rating-badge">
+                      <div className="rating-number">{review.rating}</div>
+                      <div className="rating-scale">/10</div>
+                    </div>
                   </div>
-                </div>
 
-                {/* Review Content */}
-                <div className="review-content">
-                  <div className="review-header">
+                  {/* Album Info */}
+                  <div className="review-info">
                     <div className="review-meta">
                       <span className="review-genre">{review.genre}</span>
                       <span className="review-date">{review.date}</span>
@@ -230,19 +231,19 @@ const MusicReview = () => {
                     <h3 className="review-artist">{review.artist}</h3>
                     <div className="review-album-title">"{review.album}"</div>
                     <div className="review-year">({review.year})</div>
-                  </div>
-
-                  <div className="review-body">
-                    <p className="review-summary">{review.summary}</p>
-                    <div className="review-verdict">
-                      <span className="verdict-label">VERDICT:</span>
-                      <span className="verdict-text">{review.verdict}</span>
+                    <div className="review-footer">
+                      <span className="reviewer-label">REVIEWED BY</span>
+                      <span className="reviewer-name">{review.reviewer}</span>
                     </div>
                   </div>
+                </div>
 
-                  <div className="review-footer">
-                    <span className="reviewer-label">REVIEWED BY</span>
-                    <span className="reviewer-name">{review.reviewer}</span>
+                {/* Review Content - Summary Below */}
+                <div className="review-content">
+                  <div className="review-body">
+                    {review.summary.split('\n').map((paragraph, idx) => (
+                      paragraph.trim() && <p key={idx} className="review-summary">{paragraph}</p>
+                    ))}
                   </div>
 
                   {/* Comments Section */}

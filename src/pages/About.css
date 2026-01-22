@@ -47,6 +47,21 @@
   letter-spacing: 1px;
 }
 
+/* Profile Hero Section */
+.profile-hero-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.profile-hero-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0px #000;
+}
+
 /* Two Column Layout */
 .about-main-content {
   display: grid;
@@ -292,6 +307,16 @@
 
   .main-column {
     padding: 25px;
+  }
+
+  .profile-hero-section {
+    margin-bottom: 30px;
+  }
+
+  .profile-hero-image {
+    max-width: 320px;
+    border: 3px solid #000;
+    box-shadow: 6px 6px 0px #000;
   }
 
   .section-heading {

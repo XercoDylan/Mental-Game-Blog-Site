@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { collection, getDocs, limit, query } from 'firebase/firestore';
+import { db } from '../firebase';
 import './Page.css';
 import './About.css';
 
 const About = () => {
   const navigate = useNavigate();
+  const [profileImage, setProfileImage] = useState('');
+
+  useEffect(() => {
+    const fetchAboutData = async () => {
+      try {
+        const aboutCollection = collection(db, 'about');
+        const aboutQuery = query(aboutCollection, limit(1));
+        const aboutSnapshot = await getDocs(aboutQuery);
+
+        if (!aboutSnapshot.empty) {
+          const data = aboutSnapshot.docs[0].data();
+          setProfileImage(data.imageUrl || '');
+        }
+      } catch (error) {
+        console.error('Error fetching about data:', error);
+      }
+    };
+
+    fetchAboutData();
+  }, []);
 
   return (
     <motion.div
@@ -26,6 +48,13 @@ const About = () => {
           <h1 className="page-title about-title">ABOUT MENTAL GAME</h1>
           <div className="newspaper-subtitle">WHERE CULTURE MEETS AUTHENTICITY</div>
         </div>
+
+        {/* Profile Image Hero Section */}
+        {profileImage && (
+          <div className="profile-hero-section">
+            <img src={profileImage} alt="Evan J" className="profile-hero-image" />
+          </div>
+        )}
 
         {/* Main Content - Two Column Layout */}
         <div className="about-main-content">
