@@ -16,6 +16,18 @@ const MusicReview = () => {
   const [newRating, setNewRating] = useState({});
   const [user, setUser] = useState(null);
 
+  // Extract Spotify track ID from URL
+  const getSpotifyEmbedUrl = (spotifyUrl) => {
+    if (!spotifyUrl) return null;
+
+    const trackMatch = spotifyUrl.match(/track\/([a-zA-Z0-9]+)/);
+    if (trackMatch && trackMatch[1]) {
+      return `https://open.spotify.com/embed/track/${trackMatch[1]}`;
+    }
+
+    return null;
+  };
+
   useEffect(() => {
     const fetchReviews = async () => {
       try {
@@ -35,7 +47,8 @@ const MusicReview = () => {
             date: data.date || 'Date',
             albumCover: data.albumCover || '',
             summary: data.summary || 'Review summary',
-            verdict: data.verdict || 'Review verdict'
+            verdict: data.verdict || 'Review verdict',
+            songUrl: data.songUrl || ''
           };
         });
 
@@ -232,8 +245,7 @@ const MusicReview = () => {
                     <div className="review-album-title">"{review.album}"</div>
                     <div className="review-year">({review.year})</div>
                     <div className="review-footer">
-                      <span className="reviewer-label">REVIEWED BY</span>
-                      <span className="reviewer-name">{review.reviewer}</span>
+                      <span className="reviewer-label">REVIEWED BY Evan J</span>
                     </div>
                   </div>
                 </div>
@@ -245,6 +257,27 @@ const MusicReview = () => {
                       paragraph.trim() && <p key={idx} className="review-summary">{paragraph}</p>
                     ))}
                   </div>
+
+                  {/* Featured Song */}
+                  {review.songUrl && getSpotifyEmbedUrl(review.songUrl) && (
+                    <div className="review-song-section">
+                      <div className="review-song-header">
+                        <span className="review-song-icon">🎵</span>
+                        <span className="review-song-title">FEATURED TRACK</span>
+                      </div>
+                      <iframe
+                        src={getSpotifyEmbedUrl(review.songUrl)}
+                        width="100%"
+                        height="152"
+                        frameBorder="0"
+                        allowFullScreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"
+                        title={`${review.album} featured track`}
+                        className="review-spotify-embed"
+                      ></iframe>
+                    </div>
+                  )}
 
                   {/* Comments Section */}
                   <div className="comments-section">

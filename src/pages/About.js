@@ -45,7 +45,7 @@ const About = () => {
         {/* Newspaper Header */}
         <div className="newspaper-header">
           <div className="newspaper-date">EST. 2024 • MUSIC • CULTURE • LIFESTYLE</div>
-          <h1 className="page-title about-title">ABOUT MENTAL GAME</h1>
+          <h1 className="page-title about-title">ABOUT MENTALGAME</h1>
           <div className="newspaper-subtitle">WHERE CULTURE MEETS AUTHENTICITY</div>
         </div>
 
@@ -67,7 +67,7 @@ const About = () => {
                 <span className="drop-cap">M</span>y name is Evan Johnson, a media creative and psychology scholar exploring the mental and emotional worlds behind music, culture, and creative ambition. My work sits at the intersection of storytelling, research, and real human experience—focusing on how artists think, adapt, and grow in environments shaped by pressure, identity, and expectation.
               </p>
               <p className="article-text">
-                I created Mental Game as a space for deeper conversations with musicians, creatives, and cultural leaders. Instead of surface-level interviews, I focus on mindset, motivation, resilience, and the psychological forces that shape creative careers. The goal is simple: to understand the people behind the art and give audiences a more honest look at what success really requires.
+                I created MentalGame as a space for deeper conversations with musicians, creatives, and cultural leaders. Instead of surface-level interviews, I focus on mindset, motivation, resilience, and the psychological forces that shape creative careers. The goal is simple: to understand the people behind the art and give audiences a more honest look at what success really requires.
               </p>
             </div>
 
@@ -75,7 +75,7 @@ const About = () => {
               <h2 className="section-heading">MY BACKGROUND</h2>
               <div className="article-divider"></div>
               <p className="article-text">
-                When I created Mental Game, I was a junior at Morgan State University studying psychology. During that time, I earned multiple academic honors, including three appearances on the Dean's List for achieving a 4.0 GPA across three different semesters. Much of that success comes from my ability to think critically and listen deeply—skills that shape not only how I perform in academic and professional spaces, but also how I engage with music.
+                When I created MentalGame, I was a junior at Morgan State University studying psychology. During that time, I earned multiple academic honors, including three appearances on the Dean's List for achieving a 4.0 GPA across three different semesters. Much of that success comes from my ability to think critically and listen deeply—skills that shape not only how I perform in academic and professional spaces, but also how I engage with music.
               </p>
               <blockquote className="pull-quote">
                 "Understanding what you're hearing, why it feels the way it does, and what it reveals about the artist."
@@ -145,7 +145,7 @@ const About = () => {
               <h3 className="info-box-title">THE VISION</h3>
               <div className="info-divider"></div>
               <p className="info-text">
-                Building Mental Game into a trusted voice in music media—where artists want to be featured and fans come for real recommendations.
+                Building MentalGame into a trusted voice in music media—where artists want to be featured and fans come for real recommendations.
               </p>
               <p className="info-text">
                 From interviews to documentaries, festival coverage to industry insights, I'm creating a comprehensive platform for hip-hop culture.

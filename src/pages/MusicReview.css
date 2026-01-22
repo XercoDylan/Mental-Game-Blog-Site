@@ -216,6 +216,41 @@
   margin-bottom: 12px;
 }
 
+/* Featured Song Section */
+.review-song-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 3px solid #000;
+}
+
+.review-song-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.review-song-icon {
+  font-size: 1.3rem;
+}
+
+.review-song-title {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #000;
+}
+
+.review-spotify-embed {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 .review-verdict {
   background: #f9f9f9;
   padding: 12px;

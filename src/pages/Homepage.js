@@ -240,7 +240,7 @@ const Homepage = () => {
               ease: "easeInOut"
             }}
           >
-            MENTAL GAME
+            MENTALGAME
           </motion.h1>
         </div>
         <p className="tagline">MUSIC • CULTURE • INTERVIEWS</p>
