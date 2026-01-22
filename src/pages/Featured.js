@@ -90,7 +90,7 @@ const Featured = () => {
 
         <div className="page-content">
           <div className="featured-page-header">
-            <h1 className="page-title">FEATURED ARTIST</h1>
+            <h1 className="page-title">FEATURED FIGURE</h1>
             <p className="featured-subtitle">No featured artist found.</p>
           </div>
         </div>
@@ -113,7 +113,7 @@ const Featured = () => {
       <div className="page-content">
         {/* Header */}
         <div className="featured-header">
-          <div className="featured-header-top">FEATURED ARTIST</div>
+          <div className="featured-header-top">FEATURED FIGURE</div>
           <h1 className="page-title featured-title">{featuredArtist.name.toUpperCase()}</h1>
           {featuredArtist.subtitle && (
             <div className="featured-header-subtitle">{featuredArtist.subtitle}</div>
